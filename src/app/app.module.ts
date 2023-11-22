@@ -8,19 +8,17 @@ import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.com
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { MainPageComponent } from './page/main/main-page.component';
-import { Navbar_mainComponent } from './components/navbar_main/navbar_main.component';
+
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     AddTutorialComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
     MainPageComponent,
-    Navbar_mainComponent
-   
-  ],
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -4,10 +4,11 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { MainPageComponent } from './page/main/main-page.component';
+import { NewComponent } from './page/main/new/new.component';
 
 const routes: Routes = [
   { path: '',component: MainPageComponent },
-  { path: 'tutorials', component: TutorialsListComponent },
+  { path: 'new', component: NewComponent },
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent }
 ];
