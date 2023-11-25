@@ -8,8 +8,11 @@ import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.com
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { MainPageComponent } from './page/main/main-page.component';
-
-
+import { OriginalComponent } from './page/main/original/original.component';
+import { Navbar_orginalComponent } from './components/navbar_orginal/navbar_orginal.component';
+import { Select_cit_orginaComponent } from './components/select_cit_orgina/select_cit_orgina.component';
+import { Side_orginal_rightComponent } from './components/side_orginal_right/side_orginal_right.component';
+import { Side_orginal_leftComponent } from './components/side_orginal_left/side_orginal_left.component';
 
 @NgModule({
   declarations: [	
@@ -18,12 +21,18 @@ import { MainPageComponent } from './page/main/main-page.component';
     TutorialDetailsComponent,
     TutorialsListComponent,
     MainPageComponent,
+    OriginalComponent,
+    Navbar_orginalComponent,
+    Select_cit_orginaComponent,
+    Side_orginal_rightComponent,
+    Side_orginal_leftComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
