@@ -13,9 +13,10 @@ import { Navbar_orginalComponent } from './components/navbar_orginal/navbar_orgi
 import { Select_cit_orginaComponent } from './components/select_cit_orgina/select_cit_orgina.component';
 import { Side_orginal_rightComponent } from './components/side_orginal_right/side_orginal_right.component';
 import { Side_orginal_leftComponent } from './components/side_orginal_left/side_orginal_left.component';
+import { SuportComponent } from './components/suport/suport.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     AddTutorialComponent,
     TutorialDetailsComponent,
@@ -25,16 +26,11 @@ import { Side_orginal_leftComponent } from './components/side_orginal_left/side_
     Navbar_orginalComponent,
     Select_cit_orginaComponent,
     Side_orginal_rightComponent,
-    Side_orginal_leftComponent
-   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-   
+    Side_orginal_leftComponent,
+    SuportComponent,
   ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
