@@ -1,39 +1,26 @@
-<div class="flex flex-col items-start">
-  <div class="">
-    <p class="mt-12 text-slate-500 text-sm ">دیوار مشهد - نیازمندی‌ های رایگان، آگهی‌های خرید، فروش نو و دست دوم و کارکرده، استخدام و خدمات</p>
-  </div>
-  <div class="flex gap-5">
-    <div class="flex border rounded-lg p-3 gap-3 items-center mt-3">
+<div class="flex">
+  <p class="mt-12 text-slate-500 text-sm">
+    دیوار مشهد - نیازمندی‌ های رایگان، آگهی‌های خرید، فروش نو و دست دوم و
+    کارکرده، استخدام و خدمات
+  </p>
+</div>
+<div class="grid grid-cols-3 mt-4 gap-3">
+  <div *ngFor="let item of Result" class="">
+    <div class="border rounded-lg p-3 items-center flex gap-3">
       <div class="Right flex flex-col items-start gap-5">
-        <span class="Title font-bold ">۱۲۵متر-صفر-۱۲واحدی</span>
-        <span class="discription text-sm text-slate-500">رهن کامل</span>
-        <span class="price text-sm text-slate-500">ودیعه: ۴۵۰,۰۰۰,۰۰۰ تومان</span>
-        <span class="place text-sm text-slate-500">مشاور دهقان در الهیه</span>
+        <span class="Title font-bold">{{ item.tittle }}</span>
+        <span class="discription text-sm text-slate-500">{{
+          item.discription
+        }}</span>
+        <span class="price text-sm text-slate-500">{{ item.price }}</span>
+        <span class="place text-sm text-slate-500">{{ item.place }}</span>
       </div>
       <div class="Left">
-        <img  src="../../../assets/img/picture_Orginal.webp" alt="">
-      </div>
-    </div>
-    <div class="flex border rounded-lg p-3 gap-3 items-center mt-3">
-      <div class="Right flex flex-col items-start gap-5">
-        <span class="Title font-bold ">۱۲۵متر-صفر-۱۲واحدی</span>
-        <span class="discription text-sm text-slate-500">رهن کامل</span>
-        <span class="price text-sm text-slate-500">ودیعه: ۴۵۰,۰۰۰,۰۰۰ تومان</span>
-        <span class="place text-sm text-slate-500">مشاور دهقان در الهیه</span>
-      </div>
-      <div class="Left">
-        <img  src="../../../assets/img/picture_Orginal.webp" alt="">
-      </div>
-    </div>
-    <div class="flex border rounded-lg p-3 gap-3 items-center mt-3">
-      <div class="Right flex flex-col items-start gap-5">
-        <span class="Title font-bold ">۱۲۵متر-صفر-۱۲واحدی</span>
-        <span class="discription text-sm text-slate-500">رهن کامل</span>
-        <span class="price text-sm text-slate-500">ودیعه: ۴۵۰,۰۰۰,۰۰۰ تومان</span>
-        <span class="place text-sm text-slate-500">مشاور دهقان در الهیه</span>
-      </div>
-      <div class="Left">
-        <img  src="../../../assets/img/picture_Orginal.webp" alt="">
+        <img
+          src="{{ item.img }}"
+          alt=""
+          style="width: 200px; height: 200px; object-fit: contain"
+        />
       </div>
     </div>
   </div>

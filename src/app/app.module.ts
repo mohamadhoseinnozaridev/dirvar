@@ -14,6 +14,8 @@ import { Select_cit_orginaComponent } from './components/select_cit_orgina/selec
 import { Side_orginal_rightComponent } from './components/side_orginal_right/side_orginal_right.component';
 import { Side_orginal_leftComponent } from './components/side_orginal_left/side_orginal_left.component';
 import { SuportComponent } from './components/suport/suport.component';
+import { ProductService } from './services/product.service';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { SuportComponent } from './components/suport/suport.component';
     SuportComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  providers: [ProductService, CategoryService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
