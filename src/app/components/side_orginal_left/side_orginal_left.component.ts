@@ -16,28 +16,53 @@ export class Side_orginal_leftComponent implements OnInit {
   place: string = '';
   img: string = '';
   Result: listmodel[] = [];
-
+  showText: boolean = false;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    debugger;
-    const value = this.route.snapshot.queryParamMap.get('Product');
+    this.productService.Name = 'Ali';
 
-    this.productService.getProducts(value).subscribe((result) => {
-      for (let i = 0; i < result.length; i++) {
-        this.Result.push({
-          id: result[i].id,
-          discription: result[i].description,
-          img: result[i].image,
-          place: '',
-          price: result[i].price.toString(),
-          tittle: result[i].title,
-        });
-      }
-    });
+    const value = this.route.snapshot.queryParamMap.get('Product');
+    if (value) {
+      this.productService.getProductCategory(value).subscribe((result) => {
+        for (let i = 0; i < result[0].products.length; i++) {
+          this.Result.push({
+            id: result[0].products[i].id,
+            discription: result[0].products[i].description,
+            img: result[0].products[i].image,
+            place: '',
+            price: result[0].products[i].price.toString(),
+            tittle: result[0].products[i].name,
+            slug: result[0].slug,
+          });
+        }
+      });
+    } else {
+      this.productService.getAllProducts().subscribe((result) => {
+        for (let i = 0; i < result.data.length; i++) {
+          this.Result.push({
+            id: result.data[i].id,
+            discription: result.data[i].description,
+            img: result.data[i].image,
+            place: '',
+            price: result.data[i].price.toString(),
+            tittle: result.data[i].name,
+            slug: result.data[i].slug,
+          });
+        }
+      });
+    }
+  }
+
+  shortText(str: string) {
+    if (str.length > 20) {
+      return str.substring(0, 20) + '...';
+    } else {
+      return str;
+    }
   }
 }
 class listmodel {
@@ -47,4 +72,5 @@ class listmodel {
   price: string = '';
   place: string = '';
   img: string = '';
+  slug: string = '';
 }

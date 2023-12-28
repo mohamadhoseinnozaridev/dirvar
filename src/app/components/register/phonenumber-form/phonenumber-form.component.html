@@ -1,0 +1,57 @@
+<form [formGroup]="form" (ngSubmit)="sendcomment()" #ngForm="ngForm">
+  <div class="container_new p-3">
+    <div class="flex flex-col">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold">ورود به حساب کاربری</h3>
+        <img class="h-[30px]" src="../../assets/img/xmark-solid.svg" alt="" />
+      </div>
+      <hr class="mt-10" />
+      <div class="mt-10 flex font-bold">
+        <h3>شمارهٔ موبایل خود را وارد کنید</h3>
+      </div>
+      <div class="flex flex-col items-start mt-10 text-slate-400">
+        <span>قبل از ثبت آگهی، لطفاً وارد حساب خود شوید.</span>
+        <span>کد تأیید به این شماره پیامک می‌شود.</span>
+      </div>
+      <div class="flex flex-col">
+        <div
+          class="flex flex-row-reverse mt-4 items-center justify-center border"
+        >
+          <span>+98</span>
+          <input
+            class="form-control border px-36 py-2 rounded-lg outline-none"
+            name="userphone"
+            id="userphone"
+            type="text"
+            [formControl]="phonenumber"
+            placeholder="شماره موبایل "
+          />
+        </div>
+        <div class="" [hidden]="!ngForm.submitted">
+          <div
+            class=""
+            [hidden]="
+              !phonenumber.hasError('minlength') &&
+              !phonenumber.hasError('required')
+            "
+          >
+            لطفا یک شماره موبایل معتبر وارد نمایید.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex mt-4 mb-4">
+      <span class="text-red-700 font-bold"
+        >شرایط استفاده از خدمات و حریم خصوصی دیوار را می‌پذیرم.</span
+      >
+    </div>
+  </div>
+  <div class="mt-3 p-2">
+    <button
+      class="bg-red-800 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+      type="submit"
+    >
+      تائید
+    </button>
+  </div>
+</form>

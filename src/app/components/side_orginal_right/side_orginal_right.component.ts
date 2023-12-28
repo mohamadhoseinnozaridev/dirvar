@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-side_orginal_right',
@@ -11,14 +12,18 @@ export class Side_orginal_rightComponent implements OnInit {
   title: string = '';
   listcategory: categoryModel[] = [];
 
-  constructor(private categoryservice: CategoryService) {}
+  constructor(
+    private categoryservice: CategoryService,
+    private productService: ProductService
+  ) {}
 
   ngOnInit() {
     this.categoryservice.getcategory().subscribe((result) => {
-      for (let i = 0; i < result.length; i++) {
+      for (let i = 0; i < result.data.length; i++) {
         this.listcategory.push({
-          id: 0,
-          title: result[i],
+          id: result.data[i].id,
+          title: result.data[i].name,
+          slug: result.data[i].slug,
         });
       }
     });
@@ -27,4 +32,5 @@ export class Side_orginal_rightComponent implements OnInit {
 export class categoryModel {
   id: number = 0;
   title: string = '';
+  slug: string = '';
 }

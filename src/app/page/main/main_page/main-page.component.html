@@ -49,7 +49,12 @@
       class="mt-4 border-solid border-2 border-[rgb(194 194 194)] px-2 py-2 rounded-sm hover:border-red-500 flex items-center justify-start gap-3"
     >
       <span>Q</span>
-      <input class="outline-none" type="text" placeholder="جستجو شهر" />
+      <input
+        class="outline-none"
+        type="text"
+        placeholder="جستجو شهر"
+        [(ngModel)]="keyword"
+      />
     </div>
     <!-- input_main -->
     <!-- city_main -->
@@ -58,41 +63,13 @@
         <h3 class="flex">شهرهای پربازدید</h3>
       </div>
       <div class="mt-10 flex flex-col px-3 gap-10 text-[#6a6b6b]">
-        <div class="">
-          <ul class="flex gap-20">
+        <div class="flex gap-4">
+          <ul
+            class="flex gap-20"
+            *ngFor="let item of cityall | search_main_page : keyword"
+          >
             <li>
-              <a href="">تهران</a>
-            </li>
-            <li>
-              <a href="/orginal">مشهد</a>
-            </li>
-            <li>
-              <a href="">کرج</a>
-            </li>
-            <li>
-              <a href="">شیراز</a>
-            </li>
-            <li>
-              <a href="">اصفهان</a>
-            </li>
-          </ul>
-        </div>
-        <div class="">
-          <ul class="flex gap-20">
-            <li>
-              <a href="">اهواز</a>
-            </li>
-            <li>
-              <a href="">تبریز</a>
-            </li>
-            <li>
-              <a href="">کرمانشاه</a>
-            </li>
-            <li>
-              <a href="">قم</a>
-            </li>
-            <li>
-              <a href="">رشت</a>
+              <a href="/orginal">{{ item.name }}</a>
             </li>
           </ul>
         </div>

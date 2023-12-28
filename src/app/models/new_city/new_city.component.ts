@@ -1,11 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-select_cit_orgina',
-  templateUrl: './select_cit_orgina.component.html',
-  styleUrls: ['./select_cit_orgina.component.css'],
+  selector: 'app-new_city',
+  templateUrl: './new_city.component.html',
+  styleUrls: ['./new_city.component.css'],
 })
-export class Select_cit_orginaComponent implements OnInit {
+export class New_cityComponent implements OnInit {
   id: number = 0;
   city: string = '';
   select: boolean = false;
@@ -36,6 +36,10 @@ export class Select_cit_orginaComponent implements OnInit {
   constructor() {}
   ngOnInit() {
     this.tempcities = this.cities;
+  }
+  showModal = false;
+  toggleModal() {
+    this.showModal = !this.showModal;
   }
   Onserch(e: any) {
     if (e.target.value) {

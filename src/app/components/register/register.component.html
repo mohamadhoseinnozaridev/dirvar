@@ -1,0 +1,43 @@
+<div class="">
+  <button
+    class="text-white bg-red-700 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2.5 me-2"
+    type="button"
+    (click)="toggleModal()"
+  >
+    ثبت آگهی
+  </button>
+  <div
+    *ngIf="showModal"
+    class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
+  >
+    <div class="relative w-auto my-6 mx-auto max-w-3xl">
+      <!--content-->
+      <div
+        class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+      >
+        <!--header-->
+        <button
+          class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+          (click)="toggleModal()"
+        ></button>
+
+        <!--body-->
+        <div *ngIf="step == 1">
+          <app-phonenumber-form (onChange)="OnForm($event)" />
+        </div>
+        <div *ngIf="step == 2">
+          <div>
+            <app-Verification_code
+              (onchangeone)="OnFormone($event)"
+            ></app-Verification_code>
+          </div>
+        </div>
+        <div *ngIf="step == 3">
+          <app-notice-form></app-notice-form>
+        </div>
+        <!--footer-->
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+</div>

@@ -1,0 +1,64 @@
+<form [formGroup]="formone" (ngSubmit)="sendcommentone()" #ngForm="ngForm">
+  <div class="container_new p-3">
+    <div class="flex flex-col">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold">ورود به حساب کاربری</h3>
+        <a href="/orginal">
+          <img class="h-[30px]" src="../../assets/img/xmark-solid.svg" alt="" />
+        </a>
+      </div>
+      <hr class="mt-10" />
+      <div class="mt-10 flex font-bold">
+        <h3>کد تأیید را وارد کنید</h3>
+      </div>
+      <div class="flex flex-col items-start mt-10 text-slate-400">
+        <span>کد پیامک‌شده به شمارۀ «۰۹۱۵****۴۳» را وارد کنید.</span>
+      </div>
+      <div class="flex flex-col">
+        <div
+          class="flex flex-row-reverse mt-4 items-center justify-center border"
+        >
+          <input
+            class="form-control border px-36 py-2 rounded-lg outline-none text-gray-300"
+            name="userphone"
+            id="userphone"
+            type="text"
+            [formControl]="Verificationcode"
+            placeholder="کد شش رقمی رو وارید "
+          />
+        </div>
+        <div>
+          <div class="text-red-900" [hidden]="!ngForm.submitted">
+            <div
+              class=""
+              [hidden]="
+                !Verificationcode.hasError('minlength') &&
+                !Verificationcode.hasError('required')
+              "
+            >
+              کد را درست وارد کنید
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-3 p-2 flex justify-end">
+    <a href="/orginal">
+      <button
+        class="text-black font-bold py-2 px-4 border border-blue-700 rounded"
+        type="submit"
+      >
+        درخواست کد
+      </button>
+    </a>
+    <div class="">
+      <button
+        class="bg-red-800 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+        type="submit"
+      >
+        تائید
+      </button>
+    </div>
+  </div>
+</form>

@@ -4,24 +4,32 @@
     کارکرده، استخدام و خدمات
   </p>
 </div>
-<div class="grid grid-cols-3 mt-4 gap-3">
+<div class="grid grid-cols-3 mt-4 gap-3 h-[250px]">
   <div *ngFor="let item of Result" class="">
-    <div class="border rounded-lg p-3 items-center flex gap-3">
-      <div class="Right flex flex-col items-start gap-5">
-        <span class="Title font-bold">{{ item.tittle }}</span>
-        <span class="discription text-sm text-slate-500">{{
-          item.discription
-        }}</span>
-        <span class="price text-sm text-slate-500">{{ item.price }}</span>
-        <span class="place text-sm text-slate-500">{{ item.place }}</span>
+    <a href="/product?product={{ item.slug }}">
+      <div
+        class="border rounded-lg p-3 flex justify-between gap-4 items-center"
+      >
+        <div class="Right flex flex-col items-start gap-3">
+          <span class="Title font-bold">{{ item.tittle }}</span>
+          <div class="text-right">
+            <span class="discription text-sm text-slate-500">{{
+              shortText(item.discription)
+            }}</span>
+          </div>
+          <span class="price text-sm text-slate-500"
+            >{{ item.price | number }} تومان</span
+          >
+          <span class="place text-sm text-slate-500">{{ item.place }}</span>
+        </div>
+        <div class="Left">
+          <img
+            class="rounded-xl w-[136px] h-[136px] object-cover"
+            src="{{ item.img }}"
+            alt=""
+          />
+        </div>
       </div>
-      <div class="Left">
-        <img
-          src="{{ item.img }}"
-          alt=""
-          style="width: 200px; height: 200px; object-fit: contain"
-        />
-      </div>
-    </div>
+    </a>
   </div>
 </div>
